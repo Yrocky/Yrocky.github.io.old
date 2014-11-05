@@ -3,17 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014 | Yrocky</title>
+  <title>Yrocky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: “Mac上搭建hexo极简指南 “date: 2014-11-05 19:10:49categories: blog
+tags:[博客 文章]
+安装nvm(node.js的版本管理工具）
+
+$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+
+安装node.js(通过nvm安装)添加如下内容">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Yrocky">
-<meta property="og:url" content="http://yoursite.com/archives/2014/">
+<meta property="og:url" content="http://yoursite.com/2014/11/05/my-new-hexo/">
 <meta property="og:site_name" content="Yrocky">
-<meta property="og:description">
+<meta property="og:description" content="title: “Mac上搭建hexo极简指南 “date: 2014-11-05 19:10:49categories: blog
+tags:[博客 文章]
+安装nvm(node.js的版本管理工具）
+
+$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+
+安装node.js(通过nvm安装)添加如下内容">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yrocky">
-<meta name="twitter:description">
+<meta name="twitter:description" content="title: “Mac上搭建hexo极简指南 “date: 2014-11-05 19:10:49categories: blog
+tags:[博客 文章]
+安装nvm(node.js的版本管理工具）
+
+$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+
+安装node.js(通过nvm安装)添加如下内容">
 
   
     <link rel="alternative" href="/atom.xml" title="Yrocky" type="application/atom+xml">
@@ -65,52 +83,85 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/11/05/my-new-hexo/" class="archive-article-date">
-  <time datetime="2014-11-05T11:15:06.000Z" itemprop="datePublished">11月 5</time>
+        <section id="main"><article id="post-my-new-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/05/my-new-hexo/" class="article-date">
+  <time datetime="2014-11-05T11:15:06.000Z" itemprop="datePublished">11月 5 2014</time>
 </a>
-      
-    </header>
+    
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/11/05/hello-world/" class="archive-article-date">
-  <time datetime="2014-11-05T09:34:24.000Z" itemprop="datePublished">11月 5</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/05/hello-world/">Hello World</a>
-    </h1>
-  
+        <p>title: “Mac上搭建hexo极简指南 “<br>date: 2014-11-05 19:10:49<br>categories: blog</p>
+<h2 id="tags:[博客_文章]">tags:[博客 文章]</h2>
+<p>安装<code>nvm</code>(node.js的版本管理工具）</p>
+<blockquote>
+<p>$ wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh</p>
+</blockquote>
+<p>安装<code>node.js</code>(通过nvm安装)<br>添加如下内容到.zshrc配置文件</p>
+<blockquote>
+<p>$ nvm install 0.10</p>
+</blockquote>
+<p>安装<code>hexo</code>（通过npm安装）</p>
+<blockquote>
+<p>$ npm install -g hexo</p>
+</blockquote>
+<p>创建hexo文件夹，并安装hexo相关组件</p>
+<blockquote>
+<p>$ hexo init hexo</p>
+<p>$ cd hexo</p>
+<p>$ npm install</p>
+</blockquote>
+<p>本地查看<br>输入如下命令后，打开浏览器，并输入localhost:4000来查看</p>
+<blockquote>
+<p>$ hexo g</p>
+<p>$ hexo s</p>
+</blockquote>
+<ul>
+<li>注册github账号</li>
+<li>创建github账号同名repository</li>
+<li>eg:github账号名位dorayox，则创建dorayox.github.io</li>
+<li>部署到github上</li>
+</ul>
+<p>如下所示编辑_config.yml</p>
+<blockquote>
+<p>deploy:</p>
+<p>type: github</p>
+<p>repository: git@github.com:dorayox/dorayox.github.io.git</p>
+<p>branch: master</p>
+</blockquote>
+<p>输入如下命令，完成到github得部署，之后打开浏览器并输入dorayox.github.io来查看</p>
+<blockquote>
+<p>$ hexo g</p>
+<p>$ hexo d</p>
+</blockquote>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/05/my-new-hexo/" data-id="1u9cld8t7246yedt" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/11/05/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">
