@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HomeBrew | Yrocky</title>
+  <meta name="author" content="Rocky">
+  
+  <meta name="description" content="作为linux系统的忠实粉丝，我们都很喜欢 (Debian/Ubuntu)系列的apt包管理系统和(Redhat/Fedora)系列的yum包管理系统。 包括Windows用户都有多种方便的软件管理工具，如：360软件管理，QQ软件管理，迅雷软件管理等多种。 Mac OS X系统下面之前有老牌的Macports，Fink包管理系统，包括apple的官方Mac App Store。所以我们也向在苹果下找到一款比较新的，方便的包管理系统，没错，她就是
+Homebrew
+什么是Homebrew呢？
+
+Homebrew is the easiest and most flexible way to install the UNIX tools Apple didn’t include with OS X. 
+
+官方的解释非常明了，Homebrew是一个包管理器，用于在Mac上安装一些OS X没有的UNIX工具（比如著名的wget）。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="HomeBrew"/>
+  <meta property="og:site_name" content="Yrocky"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Yrocky" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Yrocky</a></h1>
+  <h2><a href="/">C&#39;est la vie</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/todolist">ToDo</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-11-05T16:02:58.000Z"><a href="/2014/11/06/HomeBrew/">11月 6 2014</a></time>
+      
+      
+  
+    <h1 class="title">HomeBrew</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>作为linux系统的忠实粉丝，我们都很喜欢 (Debian/Ubuntu)系列的apt包管理系统和(Redhat/Fedora)系列的yum包管理系统。 包括Windows用户都有多种方便的软件管理工具，如：360软件管理，QQ软件管理，迅雷软件管理等多种。 Mac OS X系统下面之前有老牌的Macports，Fink包管理系统，包括apple的官方Mac App Store。所以我们也向在苹果下找到一款比较新的，方便的包管理系统，没错，她就是</p>
+<p><a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external"><code>Homebrew</code></a></p>
+<p>什么是Homebrew呢？</p>
+<blockquote>
+<p>Homebrew is the easiest and most flexible way to install the UNIX tools Apple didn’t include with OS X. </p>
+</blockquote>
+<p>官方的解释非常明了，Homebrew是一个包管理器，用于在Mac上安装一些OS X没有的UNIX工具（比如著名的wget）。</p>
+<a id="more"></a>
+
+
+<p>Homebrew将这些工具统统安装到了 /usr/local/Cellar 目录中，并在 /usr/local/bin 中创建符号链接。</p>
+<p>Homebrew是基于Ruby的（Mac电脑默认是安装的1.8.7版本的ruby），所以安装过程也是很简单的，把下面的代码粘贴到iTerm中执行</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ruby</span> &lt;(curl -fsSkL raw.github.<span class="keyword">com</span>/mxcl/homebrew/<span class="keyword">go</span>)</div></pre></td></tr></table></figure>
+
+<p>这个地址是官方给出的（亲测有时候是OK的），其实也有很多第三方的地址，如果这个不可用（中国特色，你懂得），可以google一下地址</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例如<span class="symbol">https:</span>/<span class="regexp">/raw.github.com/mxcl</span><span class="regexp">/homebrew/master</span><span class="regexp">/Library/</span><span class="constant">Contributions</span>/install_homebrew.rb</div></pre></td></tr></table></figure>
+
+<p>安装完成后，可以用brew doctor命令检测下是否有什么冲突的地方（如没有卸载MacPorts等等）</p>
+<p>看看安装成功了没有</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">help</span></div></pre></td></tr></table></figure>
+
+<p>Homebrew安装成功后，会自动创建目录 /usr/local/Cellar 来存放Homebrew安装的程序。 这是你在命令行状态下面就可以使用 brew 命令了.</p>
+<p>通过 <code>brew install</code>就可以安装软件了,通过 <code>brew search</code> 就可以搜索程序，例如 brew search vim ,就可以搜索名称包括vim的程序,</p>
+<p>通过 <code>brew update</code> 就可以把包信息更新到最新，不过包更新是通过git命令，所以要先通过 <code>brew install</code> git 命令安装git。</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">brew –<span class="operator"><span class="keyword">help</span>   查看brew的帮助</span></div><div class="line">brew <span class="keyword">install</span> git   安装软件</div><div class="line">brew <span class="keyword">uninstall</span> git   卸载软件</div><div class="line">brew search git   搜索软件</div><div class="line">brew list   显示已经安装软件列表</div><div class="line">brew <span class="keyword">update</span>   更新软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件用*标明。</div><div class="line">brew <span class="keyword">upgrade</span> git  更新某具体软件</div><div class="line">brew [info | home] [FORMULA...]   查看软件信息</div><div class="line">brew cleanup git   删除程序，和<span class="keyword">upgrade</span>一样，单个软件删除和所有程序老版删除。</div><div class="line">brew cleanup</div><div class="line">brew outdated  查看那些已安装的程序需要更新</div></pre></td></tr></table></figure>
+
+<p>万一你用的不爽了,卸载指令:</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd `brew –prefix`</div><div class="line">rm -rf Cellar</div><div class="line">brew prune </div><div class="line">rm `git ls-files` </div><div class="line">rm -rf <span class="keyword">Library</span> .git .gitignore bin/brew</div><div class="line">rm  -rf README.md share/man/man1/brew</div><div class="line">rm -rf <span class="keyword">Library</span>/Homebrew <span class="keyword">Library</span>/Aliases </div><div class="line">rm -rf <span class="keyword">Library</span>/Formula <span class="keyword">Library</span>/Contributions</div><div class="line">rm -rf ~/<span class="keyword">Library</span>/Caches/Homebrew</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/文档/">文档</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/学习/">学习</a>, <a href="/tags/iOS/">iOS</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/11/06/HomeBrew/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Note/">Note</a><small>1</small></li>
+  
+    <li><a href="/categories/文档/">文档</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/iOS/">iOS</a><small>3</small></li>
+  
+    <li><a href="/tags/博客/">博客</a><small>1</small></li>
+  
+    <li><a href="/tags/学习/">学习</a><small>3</small></li>
+  
+    <li><a href="/tags/文章/">文章</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=2055300355&verifier=76f9a82f&colors=f0f0f0,ffffff,666666,0082cb,9dbb61&dpc=1"></iframe>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Rocky
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
