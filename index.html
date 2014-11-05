@@ -57,21 +57,24 @@
       
       
   
-    <h1 class="title"><a href="/2014/11/05/map/">map</a></h1>
+    <h1 class="title"><a href="/2014/11/05/map/">Map&amp;Location</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><code>行业术语：</code>LBS <a href="http://baike.baidu.com/subview/152851/5072513.htm?fr=aladdin" target="_blank" rel="external">Location Based Services 基于地理位置的网络服务</a>    SoLoMo 索罗门<br><strong>CoreLocation</strong></p>
-<p><strong>CoreLocation框架的使用</strong></p>
+        <blockquote>
+<p><code>行业术语：</code>LBS <a href="http://baike.baidu.com/subview/152851/5072513.htm?fr=aladdin" target="_blank" rel="external">Location Based Services 基于地理位置的网络服务</a>    SoLoMo 索罗门</p>
+<h2 id="CoreLocation"><strong>CoreLocation</strong></h2>
+</blockquote>
+<h4 id="CoreLocation框架的使用"><strong>CoreLocation框架的使用</strong></h4>
 <ul>
 <li>导入框架 <code>CoreLocation.framework</code></li>
 <li>导入头文件 <code>#improt &lt;CoreLocation/CoreLocation.h&gt;</code></li>
 <li>该框架中的所有数据类型都是以<code>CL</code>开头的</li>
 <li>使用<code>CLLocationManager</code>来管理用户位置</li>
 </ul>
-<p><strong>CLLocationManager的常用操作</strong></p>
+<h4 id="CLLocationManager的常用操作"><strong>CLLocationManager的常用操作</strong></h4>
 <p>根据管理对象的判断是否定位可用，不可用直接返回空，可用才接着进行后面的定位操作</p>
 <table>
 <thead>
@@ -98,7 +101,7 @@
 <ul>
 <li>方法：<br><code>stratUpdatingLocation</code>和<code>stopUpdatingLocation</code>  在start之后会频繁的调用代理方法</li>
 </ul>
-<p><strong>CLLocation</strong></p>
+<h4 id="CLLocation"><strong>CLLocation</strong></h4>
 <p>用来表示某个位置的地理信息，比如海拔，经纬度，通过这个对象可以和<code>MPAnnotation</code>对象进行相关联，然后将位置转化成提示对象，最后通过提示对象添加到地图上</p>
 <table>
 <thead>
@@ -126,13 +129,13 @@
 </tr>
 </tbody>
 </table>
-<p><strong>CLGeocoder</strong></p>
+<h4 id="CLGeocoder"><strong>CLGeocoder</strong></h4>
 <p><code>geocodeAddressString....</code>地理编码：根据给定的地名，获得具体的位置信息，经纬度和海拔</p>
 <p><code>recerseGeocodeLocation....</code>反地理编码：根据经纬度，海拔等获得具体的位置信息</p>
 <ul>
 <li>当地理编码或者反编码之后就会调用CLGeocodeCompletionHandler方法,这是个block，里面装的是CLPlaceMark对象</li>
 </ul>
-<p><strong>CLPlacemark</strong></p>
+<h4 id="CLPlacemark"><strong>CLPlacemark</strong></h4>
 <p>字面意思是地标，封装详细的地址位置信息，在地理位置编码的时候返回的数据就是这个对象</p>
 <table>
 <thead>
@@ -156,25 +159,25 @@
 </tr>
 </tbody>
 </table>
-<p><strong>MapKit</strong></p>
-<p><strong>MapKit框架的使用</strong></p>
+<h2 id="MapKit"><strong>MapKit</strong></h2>
+<h4 id="MapKit框架的使用"><strong>MapKit框架的使用</strong></h4>
 <ul>
 <li>导入框架<code>MapKit.framework</code></li>
 <li>导入头文件<code>#import &lt;MapKit/MapKit.h&gt;</code></li>
 <li>MapKit框架的所有数据类型的前缀都是<code>MK</code></li>
 <li>MapKit框架中有一个很重要的UI控件：<code>MKMapView</code>，专门用于地图显示</li>
 </ul>
-<p><strong>userTrackingMode</strong></p>
+<h4 id="userTrackingMode"><strong>userTrackingMode</strong></h4>
 <p>跟踪用户的位置,属性可以进行跟踪显示用户的当前位置信息</p>
-<p><strong>mapViewType</strong></p>
+<h4 id="mapViewType"><strong>mapViewType</strong></h4>
 <p>地图的类型,可以设置地图的类型：普通，卫星云图，普通地图覆盖于云图上面</p>
-<p><strong>regin</strong></p>
+<h4 id="regin"><strong>regin</strong></h4>
 <p>通过设置<code>centerCoordinate</code>(CL)和<code>span</code>(MK)可以设置地图的显示位置和区域</p>
 <p>map.regin = MKCoordinateRegionMake(coordinate, span)</p>
-<p><strong>annotation</strong></p>
+<h4 id="annotation"><strong>annotation</strong></h4>
 <p>其实就是大头针</p>
 <p><code>MKPinAnnotationView</code>是<code>MKAnnotationView</code>的子类，只不过是多了两个属性：pinColor和animationDrop// 第一个是大头针的颜色，第二个是大头针第一次显示的时候是否从天而降</p>
-<p><strong>covertPoint</strong></p>
+<h4 id="covertPoint"><strong>covertPoint</strong></h4>
 <p>将数学坐标系转变成地理坐标</p>
 <p>[self.map convertPoint:point toCoordinateFromView:self.map]</p>
 
