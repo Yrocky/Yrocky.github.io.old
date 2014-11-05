@@ -63,8 +63,7 @@
     </header>
     <div class="entry">
       
-        <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="code">`行业术语：`</span>LBS [<span class="link_label">Location Based Services 基于地理位置的网络服务</span>](<span class="link_url">http://baike.baidu.com/subview/152851/5072513.htm?fr=aladdin</span>)    SoLoMo 索罗门</div></pre></td></tr></table></figure>
-
+        <p><code>行业术语：</code>LBS <a href="http://baike.baidu.com/subview/152851/5072513.htm?fr=aladdin" target="_blank" rel="external">基于地理位置的网络服务</a>    SoLoMo 索罗门</p>
 <h2 id="CoreLocation"><strong>CoreLocation</strong></h2>
 <h4 id="CoreLocation框架的使用"><strong>CoreLocation框架的使用</strong></h4>
 <ul>
@@ -172,13 +171,15 @@
 <p>地图的类型,可以设置地图的类型：普通，卫星云图，普通地图覆盖于云图上面</p>
 <h4 id="regin"><strong>regin</strong></h4>
 <p>通过设置<code>centerCoordinate</code>(CL)和<code>span</code>(MK)可以设置地图的显示位置和区域</p>
-<p>map.regin = MKCoordinateRegionMake(coordinate, span)</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">map</span>.<span class="variable">regin =</span> MKCoordinateRegionMake(coordinate, span)</div></pre></td></tr></table></figure>
+
 <h4 id="annotation"><strong>annotation</strong></h4>
 <p>其实就是大头针</p>
 <p><code>MKPinAnnotationView</code>是<code>MKAnnotationView</code>的子类，只不过是多了两个属性：pinColor和animationDrop// 第一个是大头针的颜色，第二个是大头针第一次显示的时候是否从天而降</p>
 <h4 id="covertPoint"><strong>covertPoint</strong></h4>
 <p>将数学坐标系转变成地理坐标</p>
-<p>[self.map convertPoint:point toCoordinateFromView:self.map]</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.<span class="built_in">map</span> convertPoin<span class="variable">t:point</span> toCoordinateFromVie<span class="variable">w:self</span>.<span class="built_in">map</span>]</div></pre></td></tr></table></figure>
+
 
       
     </div>
