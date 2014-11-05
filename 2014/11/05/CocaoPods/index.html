@@ -6,7 +6,7 @@
   <title>CocaoPods | Yrocky</title>
   <meta name="author" content="Rocky">
   
-  <meta name="description" content="当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之小编的意思就是，手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods.
+  <meta name="description" content="当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods.
 CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。">
   
   
@@ -65,7 +65,7 @@ CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个�
     </header>
     <div class="entry">
       
-        <p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetWorking</a>等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之小编的意思就是，手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 <code>CocoaPods</code>.</p>
+        <p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetWorking</a>等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 <code>CocoaPods</code>.</p>
 <p>CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。</p>
 <a id="more"></a>
 
@@ -90,7 +90,7 @@ CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个�
 <p>等上十几秒钟，CocoaPods就可以在你本地下载并且安装好了，不再需要其他设置。</p>
 <h2 id="使用cocoaPods">使用cocoaPods</h2>
 <p>使用CocoPods和安装它一样简单，也是通过一两行命令就可以搞定。</p>
-<h4 id="场景1：利用CocoaPods，在项目中导入AFNetworking类库">场景1：利用CocoaPods，在项目中导入AFNetworking类库</h4>
+<h3 id="场景1：利用CocoaPods，在项目中导入AFNetworking类库">场景1：利用CocoaPods，在项目中导入AFNetworking类库</h3>
 <p>AFNetworking类库在GitHub地址是：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a></p>
 <p>为了确定AFNetworking是否支持CocoaPods，可以用CocoaPods的搜索功能验证一下。在终端中输入：</p>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="built_in">search</span> AFNetworking</div></pre></td></tr></table></figure>
@@ -115,11 +115,9 @@ CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个�
 <p>注意最后一句话，意思是：以后打开项目就用 <code>CocoaPodsDemo.xcworkspace</code> 打开，而不是之前的.xcodeproj文件。</p>
 <p>出现的.xcodeproj文件正是刚刚运行$ pod install命令产生的新文件。除了这个文件，你会发现还多了另外一个文件“Podfile.lock”和一个文件夹“Pods”。 </p>
 <p>现在，你就可以开始使用AFNetworking.h啦。</p>
-<h4 id="场景2：如何正确编译运行一个包含CocoPods类库的项目">场景2：如何正确编译运行一个包含CocoPods类库的项目</h4>
+<h3 id="场景2：如何正确编译运行一个包含CocoPods类库的项目">场景2：如何正确编译运行一个包含CocoPods类库的项目</h3>
 <p>你也许曾经遇到过（特别是新手iOS开发者）这种情况，好不容易在GitHub上找到一份代码符合自己想需求，兴冲冲下载下来，一编译，傻眼了，发现有各种各样错误。一看，原来是缺失了各种其他第三方类库。这时候莫慌，你再仔细一看，会发现你下载的代码包含了Podfile。没错，这意味着你可以用CocoaPods很方便下载所需要的类库。</p>
-<p>下面，小编以代码 UAAppReviewManager 为例来说明如何正确编译运行一个包含CocoPods类库的项目。</p>
-<p>UAAppReviewManager是一个能够让你方便地将提醒用户评分的功能加入你的应用中。当你去UAAppReviewManager的GitHub地址下载这份代码之后，打开Example工程（UAAppReviewManagerExample），编译，你会发现Xcode报告一大堆错误，基本都是说你编译的这份代码找不到某某头文件，这就意味着你要成功编译UAAppReviewManager的Example代码，必须先导入一些第三方类库。同时你会发现在UAAppReviewManagerExample文件夹下面有三个跟CocosPods相关的文件（文件夹）：Podfile，Podfile.lock和Pods，如下图：</p>
-<p>用</p>
+<p>UAAppReviewManager是一个能够让你方便地将提醒用户评分的功能加入你的应用中。当你去UAAppReviewManager的GitHub地址下载这份代码之后，打开Example工程（UAAppReviewManagerExample），编译，你会发现Xcode报告一大堆错误，基本都是说你编译的这份代码找不到某某头文件，这就意味着你要成功编译UAAppReviewManager的Example代码，必须先导入一些第三方类库。同时你会发现在UAAppReviewManagerExample文件夹下面有三个跟CocosPods相关的文件（文件夹）：Podfile，Podfile.lock和Pods</p>
 <p>这时候，打开终端，进入UAAppReviewManagerExample所在的目录，也就是和Podfile在同一目录下，和场景1一样，输入以下命令（由于已经有Podfile，所以不需要再创建Podfile）：</p>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="keyword">update</span></div></pre></td></tr></table></figure>
 

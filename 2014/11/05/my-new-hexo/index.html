@@ -67,20 +67,22 @@
         <p>本文就在Mac环境下搭建一个极简的Hexo个人博客，没有那么复杂的指令，前提是iTerm有安装Wget工具，关于如何安装Wget工具建议首先安装HomeBrew工具集，然后使用brew直接安装Wget，这个安装过程实在默认已经拥有了SSH_Key之后的操作，具体的SSH_Key拥有过程可以参考github/hexo上面的讲解步骤</p>
 <a id="more"></a>
 
-<h4 id="安装nvm(node-js的版本管理工具）">安装<code>nvm</code>(node.js的版本管理工具）</h4>
+<h4 id="1-安装nvm(node-js的版本管理工具）">1.安装<code>nvm</code>(node.js的版本管理工具）</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure>
 
-<h4 id="安装node-js(通过nvm安装)">安装<code>node.js</code>(通过nvm安装)</h4>
-<h4 id="添加如下内容到-zshrc配置文件">添加如下内容到.zshrc配置文件</h4>
+<h4 id="2-添加如下内容到-zshrc配置文件">2.添加如下内容到.zshrc配置文件</h4>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[ -s <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> ] && . <span class="string">"/Users/<span class="escape">`u</span>sers<span class="escape">`/</span>.nvm/nvm.sh"</span> # This loads nvm</div></pre></td></tr></table></figure>
+
+<h4 id="3-安装node-js(通过nvm安装)">3.安装<code>node.js</code>(通过nvm安装)</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>nvm install <span class="number">0</span>.<span class="number">10</span></div></pre></td></tr></table></figure>
 
-<h4 id="安装hexo（通过npm安装）">安装<code>hexo</code>（通过npm安装）</h4>
+<h4 id="4-安装hexo（通过npm安装）">4.安装<code>hexo</code>（通过npm安装）</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>npm install -g hexo</div></pre></td></tr></table></figure>
 
-<h4 id="创建hexo文件夹，并安装hexo相关组件">创建hexo文件夹，并安装hexo相关组件</h4>
+<h4 id="5-创建hexo文件夹，并安装hexo相关组件">5.创建hexo文件夹，并安装hexo相关组件</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init hexo</div><div class="line"><span class="variable">$ </span>cd hexo</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
 
-<h4 id="本地查看">本地查看</h4>
+<h4 id="6-本地查看">6.本地查看</h4>
 <h4 id="输入如下命令后，打开浏览器，并输入localhost:4000来查看">输入如下命令后，打开浏览器，并输入localhost:4000来查看</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo g</div><div class="line"><span class="variable">$ </span>hexo s</div></pre></td></tr></table></figure>
 
@@ -90,10 +92,10 @@
 <li>eg:github账号名位dorayox，则创建dorayox.github.io</li>
 <li>部署到github上</li>
 </ul>
-<h4 id="如下所示编辑_config-yml">如下所示编辑_config.yml</h4>
+<h4 id="7-如下所示编辑_config-yml">7.如下所示编辑_config.yml</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="label">deploy:</span></div><div class="line"><span class="label">type:</span> github</div><div class="line"><span class="label">repository:</span> git@github.com:dorayox/dorayox.github.io.git</div><div class="line"><span class="label">branch:</span> master</div></pre></td></tr></table></figure>
 
-<h4 id="输入如下命令，完成到github得部署，之后打开浏览器并输入dorayox-github-io来查看">输入如下命令，完成到github得部署，之后打开浏览器并输入dorayox.github.io来查看</h4>
+<h4 id="8-输入如下命令，完成到github得部署，之后打开浏览器并输入dorayox-github-io来查看">8.输入如下命令，完成到github得部署，之后打开浏览器并输入dorayox.github.io来查看</h4>
 <figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo g </div><div class="line"><span class="variable">$ </span>hexo d</div></pre></td></tr></table></figure>
 
 
