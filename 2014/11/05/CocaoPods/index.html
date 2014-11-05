@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CocaoPods | Yrocky</title>
+  <meta name="author" content="Rocky">
+  
+  <meta name="description" content="当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之小编的意思就是，手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 CocoaPods.
+CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="CocaoPods"/>
+  <meta property="og:site_name" content="Yrocky"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Yrocky" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Yrocky</a></h1>
+  <h2><a href="/">C&#39;est la vie</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/todolist">ToDo</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-11-05T15:32:12.000Z"><a href="/2014/11/05/CocaoPods/">11月 5 2014</a></time>
+      
+      
+  
+    <h1 class="title">CocaoPods</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit、FMDB、<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetWorking</a>等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总之小编的意思就是，手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。如果能有什么工具能解决这些恼人的问题，那将“善莫大焉”。所以，你需要 <code>CocoaPods</code>.</p>
+<p>CocoaPods应该是iOS最常用最有名的类库管理工具了，上述两个烦人的问题，通过cocoaPods，只需要一行命令就可以完全解决，当然前提是你必须正确设置它。重要的是，绝大部分有名的开源类库，都支持CocoaPods。所以，作为iOS程序员的我们，掌握CocoaPods的使用是必不可少的基本技能了。</p>
+<a id="more"></a>
+
+<h2 id="安装cocoaPods">安装cocoaPods</h2>
+<p>在安装CocoaPods之前，首先要在本地安装好Ruby环境。但由于Mac系统已经自带Ruby环境，这个步骤不成问题。</p>
+<p>接下来在终端输入</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> gem install cocoapods</div></pre></td></tr></table></figure>
+
+<p>在天朝，你懂的，在终端中敲入这个命令之后，会发现半天没有任何反应。原因无他，因为那堵墙阻挡了cocoapods.org。</p>
+<p>但是，幸好，我们可以用淘宝的Ruby镜像来访问cocoapods。按照下面的顺序在终端中敲入依次敲入命令：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gem sources <span class="comment">--remove https://rubygems.org/ </span><span class="comment"></span></div><div class="line">//等有反应之后再敲入以下命令 </div><div class="line">$ gem sources -<span class="operator">a</span> <span class="keyword">http</span>://ruby.taobao.org/</div></pre></td></tr></table></figure>
+
+<p>为了验证你的Ruby镜像是并且仅是taobao，可以用以下命令查看：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gem sources <span class="operator">-l</span></div></pre></td></tr></table></figure>
+
+<p>只有在终端中出现下面文字才表明你上面的命令是成功的：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> CURRENT SOURCES <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></div><div class="line">http://ruby.taobao.org/</div></pre></td></tr></table></figure>
+
+<p>上面所有的命令完成之时，你再次在终端中运行：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> gem install cocoapods</div></pre></td></tr></table></figure>
+
+<p>等上十几秒钟，CocoaPods就可以在你本地下载并且安装好了，不再需要其他设置。</p>
+<h2 id="使用cocoaPods">使用cocoaPods</h2>
+<p>使用CocoPods和安装它一样简单，也是通过一两行命令就可以搞定。</p>
+<h4 id="场景1：利用CocoaPods，在项目中导入AFNetworking类库">场景1：利用CocoaPods，在项目中导入AFNetworking类库</h4>
+<p>AFNetworking类库在GitHub地址是：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a></p>
+<p>为了确定AFNetworking是否支持CocoaPods，可以用CocoaPods的搜索功能验证一下。在终端中输入：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="built_in">search</span> AFNetworking</div></pre></td></tr></table></figure>
+
+<p>过几秒钟之后，你会在终端中看到关于AFNetworking类库的一些信息。</p>
+<p>我们在工程下先创建这个神奇的PodFile。在终端中进入（cd命令）你项目所在目录，然后在当前目录下，利用vim创建Podfile，运行：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim Podfile  <span class="comment">//使用  pod init 会更方便</span></div></pre></td></tr></table></figure>
+
+<p>然后在Podfile文件中输入以下文字：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">platform :ios, ‘7.0’   这句必须这么写标点符号必须是英文的，中文的不行</span></span></div><div class="line">pod "AFNetworking", "~&gt; <span class="number">2.0</span>”  这句话是作者建议的，在进行pod search <span class="constant">AFNetworking</span>之后作者建议的，以后再添加库的时候就直接在后面写，但是不能在install，需要update</div></pre></td></tr></table></figure>
+
+<p>保存退出：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">:wq</span></div></pre></td></tr></table></figure>
+
+<p>这时候，你会发现你的项目目录中，出现一个名字为Podfile的文件，而且文件内容就是你刚刚输入的内容。注意，Podfile文件应该和你的工程文件.xcodeproj在同一个目录下。</p>
+<p>这时候，你就可以利用CocoPods下载AFNetworking类库了。还是在终端中的当前项目目录下，运行以下命令：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>pod install</div></pre></td></tr></table></figure>
+
+<p>运行上述命令之后，终端出现以下信息：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">EricmatoMacBook-Pro:CocoaPodsDemo ericwang$ pod <span class="operator"><span class="keyword">install</span></span></div><div class="line">Analyzing dependencies</div><div class="line">Downloading dependencies</div><div class="line">Installing AFNetworking (<span class="number">2.0</span><span class="number">.2</span>)</div><div class="line">Generating Pods project</div><div class="line">Integrating client project</div><div class="line">[!] <span class="keyword">From</span> <span class="keyword">now</span> <span class="keyword">on</span> <span class="keyword">use</span> <span class="string">`CocoaPodsDemo.xcworkspace`</span>.</div></pre></td></tr></table></figure>
+
+<p>注意最后一句话，意思是：以后打开项目就用 <code>CocoaPodsDemo.xcworkspace</code> 打开，而不是之前的.xcodeproj文件。</p>
+<p>出现的.xcodeproj文件正是刚刚运行$ pod install命令产生的新文件。除了这个文件，你会发现还多了另外一个文件“Podfile.lock”和一个文件夹“Pods”。 </p>
+<p>现在，你就可以开始使用AFNetworking.h啦。</p>
+<h4 id="场景2：如何正确编译运行一个包含CocoPods类库的项目">场景2：如何正确编译运行一个包含CocoPods类库的项目</h4>
+<p>你也许曾经遇到过（特别是新手iOS开发者）这种情况，好不容易在GitHub上找到一份代码符合自己想需求，兴冲冲下载下来，一编译，傻眼了，发现有各种各样错误。一看，原来是缺失了各种其他第三方类库。这时候莫慌，你再仔细一看，会发现你下载的代码包含了Podfile。没错，这意味着你可以用CocoaPods很方便下载所需要的类库。</p>
+<p>下面，小编以代码 UAAppReviewManager 为例来说明如何正确编译运行一个包含CocoPods类库的项目。</p>
+<p>UAAppReviewManager是一个能够让你方便地将提醒用户评分的功能加入你的应用中。当你去UAAppReviewManager的GitHub地址下载这份代码之后，打开Example工程（UAAppReviewManagerExample），编译，你会发现Xcode报告一大堆错误，基本都是说你编译的这份代码找不到某某头文件，这就意味着你要成功编译UAAppReviewManager的Example代码，必须先导入一些第三方类库。同时你会发现在UAAppReviewManagerExample文件夹下面有三个跟CocosPods相关的文件（文件夹）：Podfile，Podfile.lock和Pods，如下图：</p>
+<p>用</p>
+<p>这时候，打开终端，进入UAAppReviewManagerExample所在的目录，也就是和Podfile在同一目录下，和场景1一样，输入以下命令（由于已经有Podfile，所以不需要再创建Podfile）：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="keyword">update</span></div></pre></td></tr></table></figure>
+
+<p>过几秒（也许需要十几秒，取决于你的网络状况）之后，终端出现：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Analyzing dependencies</div><div class="line">Fetching podspec for <span class="escape">`U</span>AAppReviewManager<span class="escape">` </span>from <span class="escape">`.</span>./<span class="escape">`</span></div><div class="line">Downloading dependencies</div><div class="line">Installing UAAppReviewManager (<span class="number">0.1</span>.<span class="number">6</span>)</div><div class="line">Generating Pods project</div><div class="line">Integrating client project</div><div class="line">[!] From now on use <span class="escape">`U</span>AAppReviewManagerExample.xcworkspace<span class="escape">`.</span></div></pre></td></tr></table></figure>
+
+<p>这时候，再回到UAAppReviewManagerExample文件夹看一看，会看到多了一个文件<code>UAAppReviewManagerExample.xcworkspace：</code></p>
+<p>根据终端的信息提示，你以后就需用新产生的UAAppReviewManagerExample.xcworkspace来运行这个Example代码了。</p>
+<p>打开UAAppReviewManagerExample.xcworkspace，编译运行，成功！</p>
+<p>注意，这里有个小问题，如果刚刚你不是输入<code>$ pod update</code>，而是输入<code>$ pod install</code>，会发现类库导入不成功，并且终端出现下面提示：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[!] Required version (UAAppReviewManager (from <span class="escape">`.</span>./<span class="escape">`)</span>) <span class="literal">not</span> found for <span class="escape">`U</span>AAppReviewManager<span class="escape">`.</span></div><div class="line"><span class="label">Available versions:</span> <span class="number">0.1</span>.<span class="number">6</span></div></pre></td></tr></table></figure>
+
+<p>这里的意思大概是Podfile文件过期，类库有升级，但是Podfile没有更改。</p>
+<ul>
+<li><p>$ pod install只会按照Podfile的要求来请求类库，如果类库版本号有变化，那么将获取失败。</p>
+</li>
+<li><p>但是 $ pod update会更新所有的类库，获取最新版本的类库。而且你会发现，如果用了 $ pod update，再用 $ pod install 就成功了。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/文档/">文档</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/iOS/">iOS</a>, <a href="/tags/学习/">学习</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/11/05/CocaoPods/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Note/">Note</a><small>1</small></li>
+  
+    <li><a href="/categories/文档/">文档</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/iOS/">iOS</a><small>2</small></li>
+  
+    <li><a href="/tags/博客/">博客</a><small>1</small></li>
+  
+    <li><a href="/tags/学习/">学习</a><small>2</small></li>
+  
+    <li><a href="/tags/文章/">文章</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=2055300355&verifier=76f9a82f&colors=f0f0f0,ffffff,666666,0082cb,9dbb61&dpc=1"></iframe>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Rocky
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
