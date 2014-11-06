@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Wget | Yrocky</title>
+  <meta name="author" content="Rocky">
+  
+  <meta name="description" content="在配置完Homebrew之后按照着官方网站上的例子安装了wget，又尝试着使用了一下wget，发现这真的是一个很神奇又很强大的工具。就着参考文章学习了一下wget，学习成本不是很高，还是比较值得学习的一个工具。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Wget"/>
+  <meta property="og:site_name" content="Yrocky"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Yrocky" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Yrocky</a></h1>
+  <h2><a href="/">C&#39;est la vie 现实而美丽</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+      <li><a href="/todolist">ToDo</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-11-06T02:07:25.000Z"><a href="/2014/11/06/Wget/">11月 6 2014</a></time>
+      
+      
+  
+    <h1 class="title">Wget</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在配置完Homebrew之后按照着官方网站上的例子安装了wget，又尝试着使用了一下wget，发现这真的是一个很神奇又很强大的工具。<br>就着参考文章学习了一下wget，学习成本不是很高，还是比较值得学习的一个工具。</p>
+<a id="more"></a>
+
+
+
+
+
+<p>wget是在Linux下开发的开放源代码的软件，作者是Hrvoje Niksic，后来被移植到包括Windows在内的各个平台上。它有以下功能和特点：<br>（1）支持断点下传功能；<br>（2）同时支持FTP和HTTP下载方式；<br>（3）支持代理服务器；<br>（4）设置方便简单；<br>（5）程序小，完全免费；</p>
+<p>wget虽然功能强大，但是使用起来还是比较简单的，基本的语法是：<code>wget [参数列表] URL。</code></p>
+<h2 id="1、下载整个http或者ftp站点">1、下载整个http或者ftp站点</h2>
+<p>wget <a href="http://place.your.url/here" target="_blank" rel="external">http://place.your.url/here</a><br>这个命令可以将<a href="http://place.your.url/here" target="_blank" rel="external">http://place.your.url/here</a> 首页下载下来。使用-x会强制建立服务器上一模一样的目录，如果使用-nd参数，那么服务器上下载的所有内容都会加到本地当前目录。</p>
+<p>wget -r <a href="http://place.your.url/here" target="_blank" rel="external">http://place.your.url/here</a><br>这 个命令会按照递归的方法，下载服务器上所有的目录和文件，实质就是下载整个网站。这个命令一定要小心使用，因为在下载的时候，被下载网站指向的所有地址同 样会被下载，因此，如果这个网站引用了其他网站，那么被引用的网站也会被下载下来！基于这个原因，这个参数不常用。可以用-l number参数来指定下载的层次。例如只下载两层，那么使用-l 2。</p>
+<p>要是您想制作镜像站点，那么可以使用－m参数，例如：wget -m <a href="http://place.your.url/here" target="_blank" rel="external">http://place.your.url/here</a><br>这时wget会自动判断合适的参数来制作镜像站点。此时，wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执行。</p>
+<h2 id="2、断点续传">2、断点续传</h2>
+<p>当文件特别大或者网络特别慢的时候，往往一个文件还没有下载完，连接就已经被切断，此时就需要断点续传。wget的断点续传是自动的，只需要使用-c参数，例如：<br>wget -c <a href="http://the.url.of/incomplete/file" target="_blank" rel="external">http://the.url.of/incomplete/file</a><br>使用断点续传要求服务器支持断点续传。-t参数表示重试次数，例如需要重试100次，那么就写-t 100，如果设成-t 0，那么表示无穷次重试，直到连接成功。-T参数表示超时等待时间，例如-T 120，表示等待120秒连接不上就算超时。</p>
+<h2 id="3、批量下载">3、批量下载</h2>
+<p>如果有多个文件需要下载，那么可以生成一个文件，把每个文件的URL写一行，例如生成文件download.txt，然后用命令：wget -i download.txt<br>这样就会把download.txt里面列出的每个URL都下载下来。（如果列的是文件就下载文件，如果列的是网站，那么下载首页）</p>
+<h2 id="4、选择性的下载">4、选择性的下载</h2>
+<p>可以指定让wget只下载一类文件，或者不下载什么文件。例如：<br>wget -m –reject=gif <a href="http://target.web.site/subdirectory" target="_blank" rel="external">http://target.web.site/subdirectory</a><br>表示下载<a href="http://target.web.site/subdirectory，但是忽略gif文件。–accept=LIST" target="_blank" rel="external">http://target.web.site/subdirectory，但是忽略gif文件。–accept=LIST</a> 可以接受的文件类型，–reject=LIST拒绝接受的文件类型。</p>
+<h2 id="5、密码和认证">5、密码和认证</h2>
+<p>wget只能处理利用用户名/密码方式限制访问的网站，可以利用两个参数：<br>–http-user=USER设置HTTP用户<br>–http-passwd=PASS设置HTTP密码<br>对于需要证书做认证的网站，就只能利用其他下载工具了，例如curl。</p>
+<h2 id="6、利用代理服务器进行下载">6、利用代理服务器进行下载</h2>
+<p>如果用户的网络需要经过代理服务器，那么可以让wget通过代理服务器进行文件的下载。此时需要在当前用户的目录下创建一个.wgetrc文件。文件中可以设置代理服务器：<br>http-proxy = 111.111.111.111:8080<br>ftp-proxy = 111.111.111.111:8080<br>分别表示http的代理服务器和ftp的代理服务器。如果代理服务器需要密码则使用：<br>–proxy-user=USER设置代理用户<br>–proxy-passwd=PASS设置代理密码<br>这两个参数。<br>使用参数–proxy=on/off 使用或者关闭代理。<br>wget还有很多有用的功能，需要用户去挖掘。</p>
+<p>附录：</p>
+<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">命令格式：</div><div class="line">wget [参数列表] [目标软件、网页的网址]</div><div class="line">-<span class="ruby"><span class="constant">V</span>,–version 显示软件版本号然后退出；</span></div><div class="line">-<span class="ruby">h,–help显示软件帮助信息；</span></div><div class="line">-<span class="ruby">e,–execute=<span class="constant">COMMAND</span> 执行一个 “.wgetrc”命令</span></div><div class="line">-<span class="ruby">o,–output-file=<span class="constant">FILE</span> 将软件输出信息保存到文件；</span></div><div class="line">-<span class="ruby">a,–append-output=<span class="constant">FILE</span>将软件输出信息追加到文件；</span></div><div class="line">-<span class="ruby">d,–debug显示输出信息；</span></div><div class="line">-<span class="ruby">q,–quiet 不显示输出信息；</span></div><div class="line">-<span class="ruby">i,–input-file=<span class="constant">FILE</span> 从文件中取得<span class="constant">URL</span>；</span></div><div class="line">-<span class="ruby">t,–tries=<span class="constant">NUMBER</span> 是否下载次数（<span class="number">0</span>表示无穷次）</span></div><div class="line">-<span class="ruby"><span class="constant">O</span> –output-document=<span class="constant">FILE</span>下载文件保存为别的文件名</span></div><div class="line">-<span class="ruby">nc, –no-clobber 不要覆盖已经存在的文件</span></div><div class="line">-<span class="ruby"><span class="constant">N</span>,–timestamping只下载比本地新的文件</span></div><div class="line">-<span class="ruby"><span class="constant">T</span>,–timeout=<span class="constant">SECONDS</span> 设置超时时间</span></div><div class="line">-<span class="ruby"><span class="constant">Y</span>,–proxy=on/off 关闭代理</span></div><div class="line">-<span class="ruby">nd,–no-directories 不建立目录</span></div><div class="line">-<span class="ruby">x,–force-directories 强制建立目录</span></div><div class="line">–http-user=USER设置HTTP用户</div><div class="line">–http-passwd=PASS设置HTTP密码</div><div class="line">–proxy-user=USER设置代理用户</div><div class="line">–proxy-passwd=PASS设置代理密码</div><div class="line">-<span class="ruby">r,–recursive 下载整个网站、目录（小心使用）</span></div><div class="line">-<span class="ruby">l,–level=<span class="constant">NUMBER</span> 下载层次</span></div><div class="line">-<span class="ruby"><span class="constant">A</span>,–accept=<span class="constant">LIST</span> 可以接受的文件类型</span></div><div class="line">-<span class="ruby"><span class="constant">R</span>,–reject=<span class="constant">LIST</span>拒绝接受的文件类型</span></div><div class="line">-<span class="ruby"><span class="constant">D</span>,–domains=<span class="constant">LIST</span>可以接受的域名</span></div><div class="line">–exclude-domains=LIST拒绝的域名</div><div class="line">-<span class="ruby"><span class="constant">L</span>,–relative 下载关联链接</span></div><div class="line">–follow-ftp 只下载FTP链接</div><div class="line">-<span class="ruby"><span class="constant">H</span>,–span-hosts 可以下载外面的主机</span></div><div class="line">-<span class="ruby"><span class="constant">I</span>,–<span class="keyword">include</span>-directories=<span class="constant">LIST</span>允许的目录</span></div><div class="line">-<span class="ruby"><span class="constant">X</span>,–exclude-directories=<span class="constant">LIST</span> 拒绝的目录</span></div></pre></td></tr></table></figure>
+
+<p>中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，<br>wget -r -np -nH –cut-dirs=3 ftp://host/test/<br>测试.txt<br>wget -r -np -nH -nd ftp://host/test/<br>%B4%FA%B8%D5.txt<br>wget “ftp://host/test/*”<br>%B4%FA%B8%D5.txt</p>
+<p>由 於不知名的原因，可能是为了避开特殊档名， wget 会自动将抓取档名的部分用 encode_string 处理过， 所以该 patch 就把被 encode_string 处理成 “%3A” 这种东西， 用 decode_string 还原成 “:”，并套用在目录与档案名称的部分，decode_string 是 wget 内建的函式。</p>
+<p>wget -t0 -c -nH -x -np -b -m -P /home/sunny/NOD32view/  <a href="http://downloads1.kaspersky-labs.com/bases/" target="_blank" rel="external">http://downloads1.kaspersky-labs.com/bases/</a> -o wget.log</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/文档/">文档</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/学习/">学习</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2014/11/06/Wget/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Note/">Note</a><small>1</small></li>
+  
+    <li><a href="/categories/文档/">文档</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/iOS/">iOS</a><small>3</small></li>
+  
+    <li><a href="/tags/博客/">博客</a><small>1</small></li>
+  
+    <li><a href="/tags/学习/">学习</a><small>4</small></li>
+  
+    <li><a href="/tags/开始/">开始</a><small>1</small></li>
+  
+    <li><a href="/tags/文章/">文章</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=2055300355&verifier=76f9a82f&colors=f0f0f0,ffffff,666666,0082cb,9dbb61&dpc=1"></iframe>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2014 Rocky
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
