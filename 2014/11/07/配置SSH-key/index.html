@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HomeBrew | Yrocky</title>
+  <title>配置SSH-key | Yrocky</title>
   <meta name="author" content="Rocky">
   
-  <meta name="description" content="作为linux系统的忠实粉丝，我们都很喜欢 (Debian/Ubuntu)系列的apt包管理系统和(Redhat/Fedora)系列的yum包管理系统。 包括Windows用户都有多种方便的软件管理工具，如：360软件管理，QQ软件管理，迅雷软件管理等多种。 Mac OS X系统下面之前有老牌的Macports，Fink包管理系统，包括apple的官方Mac App Store。所以我们也向在苹果下找到一款比较新的，方便的包管理系统，没错，她就是
-Homebrew">
+  <meta name="description" content="搭建完成Hexo个人博客之后，关联Github会出现error或者false，从提示的子眼中看出来说是缺少SSH，由于我的Github已经有了SSH，没有出现错误，但是从提示还是可以看出是因为没有配置SSH，在Github的settings中可以找到SSH选项，点进去可以看到。具体设置可以看看Github官方教程，很简单的。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="HomeBrew"/>
+  <meta property="og:title" content="配置SSH-key"/>
   <meta property="og:site_name" content="Yrocky"/>
 
   
@@ -206,59 +205,54 @@ Homebrew">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-11-05T16:02:58.000Z"><a href="/2014/11/06/HomeBrew/">11月 6 2014</a></time>
+        <time datetime="2014-11-07T01:39:10.000Z"><a href="/2014/11/07/配置SSH-key/">11月 7 2014</a></time>
       
       
   
-    <h1 class="title">HomeBrew</h1>
+    <h1 class="title">配置SSH-key</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>作为linux系统的忠实粉丝，我们都很喜欢 (Debian/Ubuntu)系列的apt包管理系统和(Redhat/Fedora)系列的yum包管理系统。 包括Windows用户都有多种方便的软件管理工具，如：360软件管理，QQ软件管理，迅雷软件管理等多种。 Mac OS X系统下面之前有老牌的Macports，Fink包管理系统，包括apple的官方Mac App Store。所以我们也向在苹果下找到一款比较新的，方便的包管理系统，没错，她就是</p>
-<p><a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external"><code>Homebrew</code></a></p>
+        <p>搭建完成Hexo个人博客之后，关联Github会出现error或者false，从提示的子眼中看出来说是缺少SSH，由于我的Github已经有了SSH，没有出现错误，但是从提示还是可以看出是因为没有配置SSH，在Github的settings中可以找到SSH选项，点进去可以看到。具体设置可以看看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">Github官方教程</a>，很简单的。</p>
 <a id="more"></a>
 
-<p>什么是Homebrew呢？</p>
-<blockquote>
-<p>Homebrew is the easiest and most flexible way to install the UNIX tools Apple didn’t include with OS X. </p>
-</blockquote>
-<p>官方的解释非常明了，Homebrew是一个包管理器，用于在Mac上安装一些OS X没有的UNIX工具(比如著名的wget)。</p>
-<p>Homebrew将这些工具统统安装到了 /usr/local/Cellar 目录中，并在 /usr/local/bin 中创建符号链接。</p>
-<p>Homebrew是基于Ruby的（Mac电脑默认是安装的1.8.7版本的ruby），所以安装过程也是很简单的，把下面的代码粘贴到iTerm中执行</p>
-<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ruby</span> &lt;(curl -fsSkL raw.github.<span class="keyword">com</span>/mxcl/homebrew/<span class="keyword">go</span>)</div></pre></td></tr></table></figure>
+<p>终端输入</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">C</span> <span class="string">"983272765@qq.com"</span></div></pre></td></tr></table></figure>
 
-<p>这个地址是官方给出的（亲测有时候是OK的），其实也有很多第三方的地址，如果这个不可用（中国特色，你懂得），可以google一下地址</p>
-<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">例如<span class="symbol">https:</span>/<span class="regexp">/raw.github.com/mxcl</span><span class="regexp">/homebrew/master</span><span class="regexp">/Library/</span><span class="constant">Contributions</span>/install_homebrew.rb</div></pre></td></tr></table></figure>
+<p>会出现入下提示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/YoungRocky/.ssh/id_rsa): 按回车</div><div class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): 按回车</div><div class="line">Enter same passphrase again:按回车</div></pre></td></tr></table></figure>
 
-<p>安装完成后，可以用brew doctor命令检测下是否有什么冲突的地方（如没有卸载MacPorts等等）</p>
-<p>看看安装成功了没有</p>
-<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">help</span></div></pre></td></tr></table></figure>
+<p>然后出现</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved in /Users/YoungRocky/.ssh/id<span class="emphasis">_rsa.</span></div><div class="line">Your public key has been saved in /Users/YoungRocky/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">出现一个以邮箱结尾的字符串</div><div class="line">The key's randomart image is:</div><div class="line"><span class="code">+--[ RSA 2048]----+</span></div><div class="line">|           o+OEo.|</div><div class="line">|           o+=O. |</div><div class="line">|          . +=   |</div><div class="line">|         . o .   |</div><div class="line">|        S o . .  |</div><div class="line">|         O   .   |</div><div class="line">|        . . .    |</div><div class="line">|         . . o   |</div><div class="line"><span class="header">|            . .  |</span></div><div class="line">+-----------------+</div></pre></td></tr></table></figure>
 
-<p>Homebrew安装成功后，会自动创建目录 /usr/local/Cellar 来存放Homebrew安装的程序。 这是你在命令行状态下面就可以使用 brew 命令了.</p>
-<p>通过 <code>brew install</code>就可以安装软件了,通过 <code>brew search</code> 就可以搜索程序，例如 brew search vim ,就可以搜索名称包括vim的程序,</p>
-<p>通过 <code>brew update</code> 就可以把包信息更新到最新，不过包更新是通过git命令，所以要先通过 <code>brew install</code> git 命令安装git。</p>
-<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">brew –<span class="operator"><span class="keyword">help</span>   查看brew的帮助</span></div><div class="line">brew <span class="keyword">install</span> git   安装软件</div><div class="line">brew <span class="keyword">uninstall</span> git   卸载软件</div><div class="line">brew search git   搜索软件</div><div class="line">brew list   显示已经安装软件列表</div><div class="line">brew <span class="keyword">update</span>   更新软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件用*标明。</div><div class="line">brew <span class="keyword">upgrade</span> git  更新某具体软件</div><div class="line">brew [info | home] [FORMULA...]   查看软件信息</div><div class="line">brew cleanup git   删除程序，和<span class="keyword">upgrade</span>一样，单个软件删除和所有程序老版删除。</div><div class="line">brew cleanup</div><div class="line">brew outdated  查看那些已安装的程序需要更新</div></pre></td></tr></table></figure>
+<p>依次输入下列命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>eval <span class="string">"$(ssh-agent -s)"</span> <span class="comment"># 将ssh-key添加到ssh-agent</span></div><div class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa  <span class="comment">#将</span></div><div class="line"><span class="variable">$ </span>pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub  <span class="comment">#拷贝id_rsa.pub里面的内容</span></div></pre></td></tr></table></figure>
 
-<p>万一用的不爽了,卸载指令:</p>
-<figure class="highlight {bash}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd `brew –prefix`</div><div class="line">rm -rf Cellar</div><div class="line">brew prune </div><div class="line">rm `git ls-files` </div><div class="line">rm -rf <span class="keyword">Library</span> .git .gitignore bin/brew</div><div class="line">rm  -rf README.md share/man/man1/brew</div><div class="line">rm -rf <span class="keyword">Library</span>/Homebrew <span class="keyword">Library</span>/Aliases </div><div class="line">rm -rf <span class="keyword">Library</span>/Formula <span class="keyword">Library</span>/Contributions</div><div class="line">rm -rf ~/<span class="keyword">Library</span>/Caches/Homebrew</div></pre></td></tr></table></figure>
-
+<p>接下来要做的就是进行SSH-key和Github的关联</p>
+<ul>
+<li><p>在Github个人账户旁边找到settings按钮选项<br><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" alt="settings"></p>
+</li>
+<li><p>在设置界面找到SSH-keys的设置选项<br><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" alt="image"></p>
+</li>
+<li><p>如果没有SSH-key就添加一个<br><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" alt="image"></p>
+</li>
+<li><p>将刚才复制得到的内容粘贴进来Key框中<br><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" alt="image"></p>
+</li>
+<li><p>点击Add key按钮进行添加SSH-key<br><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" alt="image"></p>
+</li>
+</ul>
 
       
     </div>
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/文档/">文档</a>
-  </div>
-
         
   
   <div class="tags">
-    <a href="/tags/学习/">学习</a>, <a href="/tags/iOS/">iOS</a>
+    <a href="/tags/学习/">学习</a>, <a href="/tags/博客/">博客</a>
   </div>
 
         
@@ -301,7 +295,7 @@ Homebrew">
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2014/11/06/HomeBrew/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2014/11/07/配置SSH-key/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
