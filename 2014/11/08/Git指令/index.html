@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>配置SSH-key | Yrocky</title>
+  <title>Git指令 | Yrocky</title>
   <meta name="author" content="Rocky">
   
-  <meta name="description" content="搭建完成Hexo个人博客之后，关联Github会出现error或者false，从提示的字眼中看出来说是缺少SSH，由于我的Github已经有了SSH，没有出现错误，在Github的settings中可以找到SSH选项，点进去可以看到。具体设置可以看看Github官方教程，很简单。">
+  <meta name="description" content="Git这个神奇的小玩意一直隐藏在你的Mac里，不会占用你的位置，但是却是一个超级使用的工具，Linux系统下无人不知github网站 可以下载源码,学习git参考资料
+12pro Git（http://git-scm.com/book）blog－Scott chacon">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="配置SSH-key"/>
+  <meta property="og:title" content="Git指令"/>
   <meta property="og:site_name" content="Yrocky"/>
 
   
@@ -205,54 +206,40 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2014-11-07T01:39:10.000Z"><a href="/2014/11/07/配置SSH-key/">11月 7 2014</a></time>
+        <time datetime="2014-11-08T07:02:31.000Z"><a href="/2014/11/08/Git指令/">11月 8 2014</a></time>
       
       
   
-    <h1 class="title">配置SSH-key</h1>
+    <h1 class="title">Git指令</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>搭建完成Hexo个人博客之后，关联Github会出现error或者false，从提示的字眼中看出来说是缺少SSH，由于我的Github已经有了SSH，没有出现错误，在Github的settings中可以找到SSH选项，点进去可以看到。具体设置可以看看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">Github官方教程</a>，很简单。</p>
+        <p>Git这个神奇的小玩意一直隐藏在你的Mac里，不会占用你的位置，但是却是一个超级使用的工具，Linux系统下无人不知<br><a href="http://git-scm.com/book" target="_blank" rel="external">github网站</a> 可以下载源码,学习git参考资料</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">pro</span> Git（<span class="url">http://git-scm.com/book）</span></div><div class="line">blog－Scott chacon</div></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<p>终端输入</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">C</span> <span class="string">"个人邮箱"</span></div></pre></td></tr></table></figure>
+<p>control R #使用历史输入内容</p>
+<p>常用的Git指令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">git config —<span class="built_in">global</span> user.name “名字” <span class="comment">#配置git，添加一个用户名</span></div><div class="line">git config —<span class="built_in">global</span> user.email “邮箱” <span class="comment">#配置git，设置邮箱</span></div><div class="line">git config —<span class="built_in">global</span> core.editor vim  <span class="comment">#将git 编辑器设为vim</span></div><div class="line">git init   <span class="comment">#创建一个仓库</span></div><div class="line">git init —bare <span class="comment">#创建一个可以远程访问的仓库（裸仓库）可以clone 也可以推送</span></div><div class="line">git clone <span class="built_in">URL</span>   <span class="comment">#克隆一个URL地址下的仓库到该文件夹下，可以是本地的也可以是远端的</span></div><div class="line">git move 绝对路径   <span class="comment">#将一个路径下面的文件转到当前路径下</span></div><div class="line">git remove </div><div class="line">git rm 文件名   <span class="comment">#删除文件，只在本仓库中有效，执行完进入暂存区</span></div><div class="line">git mv 文件名   <span class="comment">#重命名文件，执行完之后进入暂存区</span></div><div class="line">git mv <span class="operator">a</span>.txt b.txt  <span class="comment"># 将a文件名修改为b</span></div><div class="line">git rm —cached  <span class="comment">#移除暂存区里面的东西，也就是说反add操作</span></div><div class="line">git <span class="built_in">add</span> *  <span class="comment">#对仓库中所有改变的文件进行添加</span></div><div class="line">git commit -<span class="operator">a</span> -m “注释内容”  <span class="comment">#将所有改变进行添加，并进行一个提交</span></div><div class="line">git commit -<span class="operator">a</span> —amend -m  <span class="comment">#更改最后一次的git log显示</span></div><div class="line">git diff <span class="comment">#跟上一次提交的内容的不同</span></div><div class="line">git diff <span class="comment">--stage 文件1 文件2  #列出处于工作区和暂存区的文件区别</span></div><div class="line">git branch -<span class="operator">a</span>  <span class="comment">#把远端分枝列出来</span></div><div class="line">git checkout 分枝名  <span class="comment">#切换到该分知名下</span></div><div class="line">git checkout -b 分枝名  <span class="comment">#切换如果没有就进行创建分支</span></div><div class="line">git checkout —-track origin/分值名  <span class="comment">#跟踪远端分支</span></div><div class="line">git push origin 分枝名  <span class="comment">#提送内容到该分支下</span></div><div class="line">git push origin master   <span class="comment">#向主分支上传内容</span></div><div class="line">git fetch 分值名  <span class="comment">#下载分支的内容</span></div><div class="line">git <span class="built_in">merge</span> 分值名 <span class="comment">#将本分枝内容和分值名下的内容合并</span></div><div class="line">git pull origin 分值名  <span class="comment">#综合上面两个方法，一步到位合并分支并下拉内容</span></div><div class="line">git stash  <span class="comment">#将最近的一次本地修改放到回收站，没有提交，仅仅是变蓝了，也就是说放到暂存区了</span></div><div class="line">git stash apply  <span class="comment">#从回收站拿回来最近的一次本地修改</span></div><div class="line">git show  <span class="comment"># 现实提交的哈希值数列</span></div><div class="line">git reset —hard  哈希值   <span class="comment">#回到制定哈希值的状态</span></div></pre></td></tr></table></figure>
 
-<p>会出现入下提示</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/YoungRocky/.ssh/id_rsa): 按回车</div><div class="line">Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): 按回车</div><div class="line">Enter same passphrase again:按回车</div></pre></td></tr></table></figure>
-
-<p>然后出现</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved in /Users/YoungRocky/.ssh/id<span class="emphasis">_rsa.</span></div><div class="line">Your public key has been saved in /Users/YoungRocky/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">出现一个以邮箱结尾的字符串</div><div class="line">The key's randomart image is:</div><div class="line"><span class="code">+--[ RSA 2048]----+</span></div><div class="line">|           o+OEo.|</div><div class="line">|           o+=O. |</div><div class="line">|          . +=   |</div><div class="line">|         . o .   |</div><div class="line">|        S o . .  |</div><div class="line">|         O   .   |</div><div class="line">|        . . .    |</div><div class="line">|         . . o   |</div><div class="line"><span class="header">|            . .  |</span></div><div class="line">+-----------------+</div></pre></td></tr></table></figure>
-
-<p>依次输入下列命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>eval <span class="string">"$(ssh-agent -s)"</span> <span class="comment"># 将ssh-key添加到ssh-agent</span></div><div class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa  <span class="comment">#将</span></div><div class="line"><span class="variable">$ </span>pbcopy &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub  <span class="comment">#拷贝id_rsa.pub里面的内容</span></div></pre></td></tr></table></figure>
-
-<p>接下来要做的就是进行SSH-key和Github的关联</p>
-<ul>
-<li><p>在Github个人账户旁边找到settings按钮选项<br><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" alt="settings"></p>
-</li>
-<li><p>在设置界面找到SSH-keys的设置选项<br><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" alt="image"></p>
-</li>
-<li><p>如果没有SSH-key就添加一个<br><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" alt="image"></p>
-</li>
-<li><p>将刚才复制得到的内容粘贴进来Key框中<br><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" alt="image"></p>
-</li>
-<li><p>点击Add key按钮进行添加SSH-key<br><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" alt="image"></p>
-</li>
-</ul>
 
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/文档/">文档</a>
+  </div>
+
         
   
   <div class="tags">
-    <a href="/tags/学习/">学习</a>, <a href="/tags/博客/">博客</a>
+    <a href="/tags/学习/">学习</a>, <a href="/tags/Mac/">Mac</a>
   </div>
 
         
@@ -295,7 +282,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2014/11/07/配置SSH-key/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2014/11/08/Git指令/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
